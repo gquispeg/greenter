@@ -41,7 +41,7 @@ class Despatch implements DocumentInterface
      */
     private $correlativo;
     /**
-     * @var string
+     * @var array
      */
     private $observacion;
     /**
@@ -168,19 +168,19 @@ class Despatch implements DocumentInterface
     }
 
     /**
-     * @return string
+     * @return array
      */
-    public function getObservacion(): ?string
+    public function getObservacion(): ?array
     {
         return $this->observacion;
     }
 
     /**
-     * @param string $observacion
+     * @param array $observacion
      *
      * @return Despatch
      */
-    public function setObservacion(?string $observacion): Despatch
+    public function setObservacion(?array $observacion): Despatch
     {
         $this->observacion = $observacion;
 
@@ -405,5 +405,30 @@ class Despatch implements DocumentInterface
         ];
 
         return join('-', $parts);
+    }
+
+    //Extra para guia transportista
+    /**
+    * @var Client
+    */
+    private $remitente;
+        /**
+     * @return Client
+     */
+    public function getRemitente(): ?Client
+    {
+        return $this->remitente;
+    }
+
+    /**
+     * @param Client $remitente
+     *
+     * @return Despatch
+     */
+    public function setRemitente(?Client $remitente): Despatch
+    {
+        $this->remitente = $remitente;
+
+        return $this;
     }
 }
